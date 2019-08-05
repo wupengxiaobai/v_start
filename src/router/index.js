@@ -1,9 +1,9 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-// 测试相关
+// 测试
 import testRouter from "./test.js"
-// 用户相关
+// 用户
 import userRouter from './user.js'
 
 Vue.use(Router);

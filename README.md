@@ -9,6 +9,9 @@
 - mixin
   - pagination.js 分页（加载更多）
 
+## models 帮助模型
+- searchKey.js 搜索
+
 ## plugin 插件
 - vant vant-ui 管理
 
@@ -19,8 +22,10 @@
   - base.js 接口管理
   - ...js 各模块请求
 
-## models 帮助模型
-- searchKey.js 搜索
+## router 路由
+- index.js 
+- xxx.js 相关路由模块
+
 
 ## store vuex 应用
 - index.js
