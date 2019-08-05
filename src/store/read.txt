@@ -1,0 +1,8 @@
+|-  store
+    |--  index
+    |--  actions
+    |--  getters
+    |--  mutations-type
+    |--  mutations
+
+
