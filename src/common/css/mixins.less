@@ -1,270 +1,270 @@
 // 盒子宽高
 .size(@w, @h) {
-  width: @w;
-  height: @h;
+    width: @w;
+    height: @h;
 }
 
 // 字体大小与行高
 .fz(@fz, @lh: 1.2) {
-  font-size: @fz;
-  line-height: @lh;
+    font-size: @fz;
+    line-height: @lh;
 }
 
 // 最常用的flex
 .f-center() {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .f-between() {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .f-c-center() {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
 }
 
 .f-c-between() {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 // 禁止换行, 文本溢出省略号显示 (一行)
 .ellipsis() {
-  white-space: nowrap;
-  word-wrap: break-word;
-  word-break: break-all;
-  -o-text-overflow: ellipsis;
-  -ms-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  overflow: hidden;
+    white-space: nowrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 // 文本溢出省略号显示 (多行)
 // 只支持 webkit 浏览器, 解决方案：高度 = 行高*行数 height: 90px; line-height: 30px; -webkit-line-clamp: 3;
 .ellipsis-mult(@n: 3) {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: @n;
-  word-break: break-all;
-  -o-text-overflow: ellipsis;
-  -ms-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-  overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @n;
+    word-break: break-all;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 // 盒子固定宽高比
 .fixed-ratio(@padding-top: 100%) {
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding-top: @padding-top;
-
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
-    height: 100%;
-  }
+    height: 0;
+    padding-top: @padding-top;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 // 文字隐藏
 .hidden-text() {
-  text-indent: -9999px;
-  overflow: hidden;
-  text-align: left;
+    text-indent: -9999px;
+    overflow: hidden;
+    text-align: left;
 }
 
 // 扩展点击区域
 .extend-click() {
-  position: relative;
+    position: relative;
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-  }
+    &:before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+    }
 }
 
 // 清除浮动
 .clearfix() {
-  *zoom: 1;
+    *zoom: 1;
 
-  &:after {
-    display: block;
-    clear: both;
-    content: '';
-    visibility: hidden;
-    height: 0;
-  }
+    &:after {
+        display: block;
+        clear: both;
+        content: '';
+        visibility: hidden;
+        height: 0;
+    }
 }
 
 // 背景图片 2x & 3x
 .bg-image(@url) {
-  background-image: url("@url + '@2x.png'");
+    background-image: url("@url + '@2x.png'");
 
-  @media (-webkit-min-device-pixel-ratio: 3),
-  (min-device-pixel-ratio: 3) {
-    background-image: url("@url + '@3x.png'");
-  }
+    @media (-webkit-min-device-pixel-ratio: 3),
+    (min-device-pixel-ratio: 3) {
+        background-image: url("@url + '@3x.png'");
+    }
 }
 
 // 全屏大图背景
 .fullscreen-bg(@url) {
-  width: 100vw;
-  height: 100vh;
-  background: url(@url) no-repeat 50% 50%;
-  background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    background: url(@url) no-repeat 50% 50%;
+    background-size: cover;
 }
 
 // 边框1像素
 .min-device-pixel-ratio(@scale2, @scale3) {
 
-  @media screen and (min-device-pixel-ratio: 2),
-  (-webkit-min-device-pixel-ratio: 2) {
-    transform: @scale2;
-  }
-
-  @media screen and (min-device-pixel-ratio: 3),
-  (-webkit-min-device-pixel-ratio: 3) {
-    transform: @scale3;
-  }
-}
-
-.border-1px(@color: #DDD, @radius: 2px, @style: solid) {
-  position: relative;
-
-  &::before {
-    content: "";
-    pointer-events: none;
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform-origin: 0 0;
-    border: 1px @style @color;
-    border-radius: @radius;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-
     @media screen and (min-device-pixel-ratio: 2),
     (-webkit-min-device-pixel-ratio: 2) {
-      width: 200%;
-      height: 200%;
-      border-radius: @radius * 2;
-      transform: scale(.5);
+        transform: @scale2;
     }
 
     @media screen and (min-device-pixel-ratio: 3),
     (-webkit-min-device-pixel-ratio: 3) {
-      width: 300%;
-      height: 300%;
-      border-radius: @radius * 3;
-      transform: scale(.33);
+        transform: @scale3;
     }
-  }
+}
+
+.border-1px(@color: #DDD, @radius: 2px, @style: solid) {
+    position: relative;
+
+    &::before {
+        content: "";
+        pointer-events: none;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform-origin: 0 0;
+        border: 1px @style @color;
+        border-radius: @radius;
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+
+        @media screen and (min-device-pixel-ratio: 2),
+        (-webkit-min-device-pixel-ratio: 2) {
+            width: 200%;
+            height: 200%;
+            border-radius: @radius * 2;
+            transform: scale(.5);
+        }
+
+        @media screen and (min-device-pixel-ratio: 3),
+        (-webkit-min-device-pixel-ratio: 3) {
+            width: 300%;
+            height: 300%;
+            border-radius: @radius * 3;
+            transform: scale(.33);
+        }
+    }
 }
 
 .border-top-1px(@color: #DDD, @style: solid) {
-  position: relative;
+    position: relative;
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    border-top: 1Px @style @color;
-    transform-origin: 0 0;
-    .min-device-pixel-ratio(scaleY(.5), scaleY(.33));
-  }
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border-top: 1Px @style @color;
+        transform-origin: 0 0;
+        .min-device-pixel-ratio(scaleY(.5), scaleY(.33));
+    }
 }
 
 .border-bottom-1px(@color: #DDD, @style: solid) {
-  position: relative;
+    position: relative;
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    border-bottom: 1px @style @color;
-    transform-origin: 0 0;
-    .min-device-pixel-ratio(scaleY(.5), scaleY(.33));
-  }
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-bottom: 1px @style @color;
+        transform-origin: 0 0;
+        .min-device-pixel-ratio(scaleY(.5), scaleY(.33));
+    }
 }
 
 .border-left-1px(@color: #DDD, @style: solid) {
-  position: relative;
+    position: relative;
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    border-left: 1px @style @color;
-    transform-origin: 0 0;
-    .min-device-pixel-ratio(scaleX(.5), scaleX(.33));
-  }
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        border-left: 1px @style @color;
+        transform-origin: 0 0;
+        .min-device-pixel-ratio(scaleX(.5), scaleX(.33));
+    }
 }
 
 .border-right-1px(@color: #DDD, @style: solid) {
-  position: relative;
+    position: relative;
 
-  &::before {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    border-right: 1px @style @color;
-    transform-origin: 0 0;
-    .min-device-pixel-ratio(scaleX(.5), scaleX(.33));
-  }
+    &::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        border-right: 1px @style @color;
+        transform-origin: 0 0;
+        .min-device-pixel-ratio(scaleX(.5), scaleX(.33));
+    }
 }
 
 // box-shadow: 水平阴影的位置, 垂直阴影的位置, 模糊距离, 阴影的大小, 阴影的颜色, 阴影开始方向（inset）
-.box-shadow() {
-  box-shadow: 0 .14rem .26rem 0 rgba(0, 0, 0, 0.1);
+.box-shadow(@color: rgba(0, 0, 0, 0.1)) {
+    box-shadow: 0 .14rem .26rem 0 @color;
 }
 
 // 透明度
 .opacity(@opacity: 20) {
-  opacity: @opacity / 100;
-  filter: alpha(opacity=@opacity);
+    opacity: @opacity / 100;
+    filter: alpha(opacity=@opacity);
 }
 
 .box-hover() {
-  transition: transform .5s ease;
+    transition: transform .5s ease;
 
-  &:hover {
-    transform: translateX(10px);
-  }
+    &:hover {
+        transform: translateX(10px);
+    }
 }
 
 // 禁止文本被选择
 .user-select() {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 // 禁用元素事件
@@ -273,73 +273,69 @@
 // 3. 阻止触发hover和active状态
 // 4. 阻止JavaScript点击事件的触发
 .pointer-events() {
-  pointer-events: none;
+    pointer-events: none;
 }
 
 // 首字下沉
 .first-letter(@font-size: 6em) {
-  &::first-letter {
-    float: left;
-    line-height: 1;
-    font-size: @font-size;
-  }
+    &::first-letter {
+        float: left;
+        line-height: 1;
+        font-size: @font-size;
+    }
 }
 
 // 美化占位符 placeholder 样式
 .beauty-placeholder(@fz, @color: #999, @align: left) {
-  &:-moz-placeholder {
-    font-size: @fz;
-    color: @color;
-    text-align: @align;
-  }
+    &:-moz-placeholder {
+        font-size: @fz;
+        color: @color;
+        text-align: @align;
+    }
 
-  &:-ms-input-placeholder {
-    font-size: @fz;
-    color: @color;
-    text-align: @align;
-  }
+    &:-ms-input-placeholder {
+        font-size: @fz;
+        color: @color;
+        text-align: @align;
+    }
 
-  &::-webkit-input-placeholder {
-    font-size: @fz;
-    color: @color;
-    text-align: @align;
-  }
+    &::-webkit-input-placeholder {
+        font-size: @fz;
+        color: @color;
+        text-align: @align;
+    }
 }
 
 // 叉叉
 .close() {
-  position: relative;
-  -webkit-appearance: none;
-  padding: 0;
-  font-size: .50rem;
-  font-weight: 700;
-  line-height: 1;
-  color: #000;
-  border: 0;
-  text-shadow: 0 1px 0 #fff;
-  cursor: pointer;
-  opacity: .2;
-  filter: alpha(opacity=20);
-  border-radius: 50%;
-
-  &:hover {
+    position: relative;
+    -webkit-appearance: none;
+    padding: 0;
+    font-size: .50rem;
+    font-weight: 700;
+    line-height: 1;
     color: #000;
-    text-decoration: none;
+    border: 0;
+    text-shadow: 0 1px 0 #fff;
     cursor: pointer;
-    filter: alpha(opacity=50);
-    opacity: .5;
-  }
+    opacity: .2;
+    filter: alpha(opacity=20);
+    border-radius: 50%;
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-  }
+    &:hover {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+        filter: alpha(opacity=50);
+        opacity: .5;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+    }
 }
-
-
-
-
