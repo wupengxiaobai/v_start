@@ -59,7 +59,6 @@ const errorHandle = (status, otherMessage) => {
     }
 }
 
-
 // 创建axios实例
 var instance = axios.create({
     timeout: 1000 * 20
@@ -75,7 +74,7 @@ instance.defaults.transformRequest = [obj => Qs.stringify(obj)];
  */
 instance.interceptors.request.use(
     config => {
-        var token = store.getters.tokenKey;
+        var token = store.getters.token;
         token && (config.headers.Authorization = token);
         // if (config.method === 'post') {
         //     var data = Qs.parse(config.data)

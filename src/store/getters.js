@@ -1,6 +1,8 @@
-//  通过 getters 提供仓库数据
-export const oneData = state => state.oneData
-export const otherData = state => state.otherData
+/**
+ * 通过 getters 提供数据用于共享数据的渲染
+ */
+
+
 
 
 // token

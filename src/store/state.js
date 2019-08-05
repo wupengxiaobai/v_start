@@ -1,11 +1,8 @@
 const state = {
-  oneData: "ｏｎｅＤａｔａ",
-  otherData: "ｏｔｈｅｒＤａｔａ",
 
 
-
-  //  token
-  token: "a token for website"
+    //  令牌
+    token: null
 }
 
 export default state
