@@ -1,5 +1,6 @@
 import {
-    u_fixed
+    u_fixed,
+    timeFmt,
 } from './tool'
 
 const Mixin = {
@@ -15,9 +16,8 @@ const Mixin = {
             return val > 9999 ? u_fixed(val / 10000) + '万' : val;
         },
         // 时间格式化
-        mixin_time_format(val, format) {
-
-            return val;
+        mixin_time_fmt(date, fmt) {
+            return timeFmt(date, fmt);
         }
     }
 }

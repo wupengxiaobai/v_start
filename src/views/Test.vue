@@ -2,12 +2,15 @@
   <div class="test">
     <van-button type="primary" @click="getTest">请求get</van-button>
     <van-button type="primary" @click="postTest">请求post</van-button>
+    <div class="date">{{ new Date() | mixin_time_fmt('yyyy-MM-dd') }}</div>
   </div>
 </template>
 
 <script>
+import Mixin from "utils/mixin.js";
 export default {
   name: "test",
+  mixins: [Mixin],
   data() {
     return {};
   },
