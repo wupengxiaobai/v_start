@@ -2,7 +2,8 @@
   <div class="test">
     <van-button type="primary" @click="getTest">请求get</van-button>
     <van-button type="primary" @click="postTest">请求post</van-button>
-    <div class="date">{{ new Date() | mixin_time_fmt('yyyy-MM-dd') }}</div>
+    <div class="date">{{ new Date() | mixin_time_fmt('yyyy年MM月dd日 hh时mm分ss秒') }}</div>
+    <router-link to="/mine">mine</router-link>
   </div>
 </template>
 
