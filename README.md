@@ -8,8 +8,8 @@ vue 项目的开始
 
 - css/viewport|mixin.less|reset.less|variable.less 媒体查询适配方案|混入|初始化|变量|
 - js/rem.js js 移动适配
-- mixins
-  - pagination.js 分页（加载更多）mixins
+- mixin
+  - pagination.js 分页（加载更多）
 
 ## request 前后交互
 
@@ -35,9 +35,9 @@ vue 项目的开始
 
 - vant vant-ui 管理
 
-## 工具文件 （utils）
+## utils 工具 
 
-- mixins.js 过滤器混入
+- mixin.js mixin混入【过滤器】
 - tool.js 工具方法
 - debounce.js 防抖自定义组件
 - verification.js 常用正则校验
