@@ -2,7 +2,7 @@
  * api接口的统一出口
  */
 
-// 测试模块接口
+// 测试接口
 import {
   testModel
 } from './test';

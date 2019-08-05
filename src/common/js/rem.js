@@ -9,3 +9,5 @@
   b();
   c.addEventListener(a, b, false)
 })(window);
+
+//  rem 适配

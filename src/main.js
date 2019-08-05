@@ -2,20 +2,15 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store/index";
+import "./plugin/vant";
+import "./common/js/rem.js";
 
-import "./common/js/rem.js"
-
-// request2 挂在请求
-import Api from "./request2/api"
-Vue.prototype.$api = Api
+import Api from "./request/api";
+Vue.prototype.$api = Api;
 
 Vue.config.productionTip = false;
 
 
-import {
-  Button
-} from 'vant';
-Vue.use(Button)
 
 new Vue({
   router,
