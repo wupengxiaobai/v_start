@@ -41,15 +41,13 @@ export const unique = array => {
 }
 
 /**
- * 深拷贝
+ * 深度拷贝
  * @param {Object} 拷贝源对象
  */
-export const cloneJSON = source => JSON.parse(JSON.stringify(source))
+export const cloneJSON = source => JSON.parse(JSON.stringify(source));
 
 export const deepClone = (obj, hash = new WeakMap()) => {
-    if (!isObject(obj)) {
-        return obj;
-    }
+    if (!isObject(obj)) return obj;
     if (hash.has(obj)) return hash.get(obj);
     let isArray = Array.isArray(obj);
     let cloneObj = isArray ? [] : {};
@@ -77,7 +75,7 @@ function isObject(o) {
 }
 
 /**
- * 截取指定字节的字符串【或以...代替剩余字符】
+ * 截取指定字节的字符串
  * @param str 要截取的字符穿
  * @param len 要截取的长度，根据字节计算
  * @param suffix 截取前len个后，其余的字符的替换字符，一般用“…”
@@ -132,3 +130,4 @@ export const isEmpty = value => {
         (typeof value === "string" && value.trim().length === 0)
     );
 }
+

@@ -1,11 +1,27 @@
 import {
     u_fixed,
     timeFmt,
-    cloneJSON
+    cloneJSON,
+    cutString,
+    randomStr,
+    isEmpty
 } from './tools'
 
 const Mixin = {
-    methods: {},
+    methods: {
+        // 字符串截取
+        mixin_cutString(str, len, suffix) {
+            return cutString(str, len, suffix)
+        },
+        // 随机字符串生成
+        mixin_randomStr(len, str) {
+            return randomStr(len, str)
+        },
+        // 判断值是否为空
+        mixin_isEmpty(val) {
+            return isEmpty(val)
+        }
+    },
     // 过滤器
     filters: {
         //  保留两位小数

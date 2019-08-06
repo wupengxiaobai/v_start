@@ -37,7 +37,7 @@
 
 ## utils 工具 
 - mixin.js mixin混入【过滤器】
-- tool.js 工具方法
+- tools.js 工具方法
 - debounce.js 防抖自定义组件
 - verification.js 常用正则校验
 
