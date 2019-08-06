@@ -13,7 +13,7 @@ const Regs = {
         2: /(^\s*)/g,
         3: /(\s*$)/g
     },
-    toStar: {
+    star: {
         0: /(^\d{3})(\d{6})(\d{2}$)/g, //  电话
         1: /(^[\d\D]{4})([\d\D]{0,})([\d\D]{3}$)/g, //  地址
     }
@@ -66,7 +66,7 @@ export const trimSpace = (val, trimType = 0) => replace(Regs.trim[trimType], val
  * @param {String} val 字符串
  * @param {Number} starType 匹配项类型，默认电话号码
  */
-export const replace2star = (val, starType = 0) => replace(Regs.toStar[starType], val, (match, $1, $2, $3) => {
+export const replace2star = (val, starType = 0) => replace(Regs.star[starType], val, (match, $1, $2, $3) => {
     let str = $1,
         len = $2.length;
     for (var i = 0; i < len; i++) {

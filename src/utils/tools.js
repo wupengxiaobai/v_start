@@ -41,6 +41,22 @@ export const unique = array => {
 }
 
 /**
+ * 数组乱序
+ * @param {Array} 源数组
+ * @returns {Array} 乱序后数组
+ */
+export const arrDisorder = (arr) => {
+    let t, j, i = arr.length;
+    for (; i;) {
+        j = ~~(Math.random() * i);
+        t = arr[--i];
+        arr[i] = arr[j];
+        arr[j] = t;
+    }
+    return arr
+}
+
+/**
  * 深度拷贝
  * @param {Object} 拷贝源对象
  */
@@ -102,6 +118,7 @@ export const cutString = (str, len, suffix = "") => {
  * 生成随机字符串
  * @param {Number} len 指定长度
  * @param {String} str 字符串范围
+ * @returns {String} 生成随机字符串
  */
 export const randomStr = (len = 8, str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') => {
     let strLen = str.length,
