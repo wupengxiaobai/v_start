@@ -9,7 +9,7 @@
 - mixin
   - pagination.js 分页（加载更多）
 
-## models 帮助模型
+## models 帮助
 - searchKey.js 搜索
 
 ## plugin 插件

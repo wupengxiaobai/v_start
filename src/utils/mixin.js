@@ -1,6 +1,7 @@
 import {
     u_fixed,
     timeFmt,
+    cloneJSON
 } from './tool'
 
 const Mixin = {
@@ -18,6 +19,9 @@ const Mixin = {
         // 时间格式化
         mixin_time_fmt(date, fmt) {
             return timeFmt(date, fmt);
+        },
+        mixin_clone(obj) {
+            return cloneJSON(obj)
         }
     }
 }
