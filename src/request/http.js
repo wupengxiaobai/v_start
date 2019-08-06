@@ -64,7 +64,7 @@ var instance = axios.create({
     timeout: 1000 * 20
 });
 
-// 设置post请求头
+// 默认请求头类型
 instance.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
 /** 
@@ -72,16 +72,16 @@ instance.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;c
  */
 instance.interceptors.request.use(
     config => {
-        // var token = store.getters.token;
+        // let token = store.getters.token;
         // token && (config.headers.Authorization = token);
         if (config.method === 'post') {
-            var data = Qs.parse(config.data)
+            let data = Qs.parse(config.data)
             config.data = Qs.stringify({
                 // access_token: token, //  附加默认参数
                 ...data
             })
         } else if (config.method === 'get') {
-            var data = Qs.parse(config.params)
+            let data = Qs.parse(config.params)
             config.params = Qs.stringify({
                 ...data
             })

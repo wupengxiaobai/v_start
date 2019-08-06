@@ -10,13 +10,13 @@ export const u_fixed = (val, num = 2) => val.toFixed(num);
  */
 export const timeFmt = (date, fmt = 'yyyy/MM/dd') => {
     var o = {
-        "M+": date.getMonth() + 1, //月份 
-        "d+": date.getDate(), //日 
-        "h+": date.getHours(), //小时 
-        "m+": date.getMinutes(), //分 
-        "s+": date.getSeconds(), //秒 
-        "q+": Math.floor((date.getMonth() + 3) / 3), //季度 
-        "S": date.getMilliseconds() //毫秒 
+        "M+": date.getMonth() + 1,
+        "d+": date.getDate(),
+        "h+": date.getHours(),
+        "m+": date.getMinutes(),
+        "s+": date.getSeconds(),
+        "q+": Math.floor((date.getMonth() + 3) / 3),
+        "S": date.getMilliseconds()
     };
     if (/(y+)/.test(fmt)) {
         fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
@@ -82,16 +82,16 @@ function isObject(o) {
  */
 export const cutString = (str, len, suffix = "") => {
     if (!str || len <= 0) return ""
-    let templen = 0
+    let tempLen = 0
     for (let i = 0; i < str.length; i++) {
         if (str.charCodeAt(i) > 255) {
-            templen += 2
+            tempLen += 2
         } else {
-            templen++
+            tempLen++
         }
-        if (templen == len) {
+        if (tempLen == len) {
             return str.substring(0, i + 1) + suffix
-        } else if (templen > len) {
+        } else if (tempLen > len) {
             return str.substring(0, i) + suffix
         }
     }
@@ -130,4 +130,3 @@ export const isEmpty = value => {
         (typeof value === "string" && value.trim().length === 0)
     );
 }
-
