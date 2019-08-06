@@ -43,7 +43,6 @@ export const unique = array => {
 /**
  * 数组乱序
  * @param {Array} 源数组
- * @returns {Array} 乱序后数组
  */
 export const arrDisorder = (arr) => {
     let t, j, i = arr.length;
@@ -97,28 +96,27 @@ function isObject(o) {
  * @param suffix 截取前len个后，其余的字符的替换字符，一般用“…”
  */
 export const cutString = (str, len, suffix = "") => {
-    if (!str || len <= 0) return ""
-    let tempLen = 0
-    for (let i = 0; i < str.length; i++) {
+    if (!str || len <= 0) return "";
+    let tempLen = 0;
+    for (let i = 0, length = str.length; i < length; i++) {
         if (str.charCodeAt(i) > 255) {
-            tempLen += 2
+            tempLen += 2;
         } else {
-            tempLen++
+            tempLen++;
         }
         if (tempLen == len) {
-            return str.substring(0, i + 1) + suffix
+            return str.substring(0, i + 1) + suffix;
         } else if (tempLen > len) {
-            return str.substring(0, i) + suffix
+            return str.substring(0, i) + suffix;
         }
     }
-    return str
+    return str;
 }
 
 /**
  * 生成随机字符串
  * @param {Number} len 指定长度
  * @param {String} str 字符串范围
- * @returns {String} 生成随机字符串
  */
 export const randomStr = (len = 8, str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789') => {
     let strLen = str.length,
@@ -137,7 +135,6 @@ function randomInt(min, max) {
 /**
  * 判断值是否为空
  * @param {*} value 
- * @returns {Boolean}
  */
 export const isEmpty = value => {
     return (

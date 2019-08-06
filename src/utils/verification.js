@@ -48,7 +48,6 @@ export const idCardVerify = idCard => regTest(Regs.idCard, idCard);
  */
 export const bankCardVerify = bankCard => regTest(Regs.bankCard, bankCard);
 
-
 /**
  * replace 方法
  */
@@ -62,16 +61,16 @@ const replace = (reg, val, tarVal) => val.replace(reg, tarVal);
 export const trimSpace = (val, trimType = 0) => replace(Regs.trim[trimType], val, "");
 
 /**
- * 匹配范围内字符 * 展示
+ * 匹配范围字符展示 “*” 
  * @param {String} val 字符串
  * @param {Number} starType 匹配项类型，默认电话号码
  */
 export const replace2star = (val, starType = 0) => replace(Regs.star[starType], val, (match, $1, $2, $3) => {
     let str = $1,
         len = $2.length;
-    for (var i = 0; i < len; i++) {
-        str += "*"
+    for (let i = 0; i < len; i++) {
+        str += "*";
     }
-    str += $3
+    str += $3;
     return str
 })
