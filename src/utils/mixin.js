@@ -2,7 +2,7 @@ import {
     u_fixed,
     timeFmt,
     cloneJSON
-} from './tool'
+} from './tools'
 
 const Mixin = {
     methods: {},
@@ -12,7 +12,7 @@ const Mixin = {
         mixin_fixed(val) {
             return u_fixed(val)
         },
-        //  数值 -> 汉字
+        //  数值汉字化
         mixin_num2chinese(val) {
             return val > 9999 ? u_fixed(val / 10000) + '万' : val;
         },
