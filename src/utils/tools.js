@@ -10,13 +10,13 @@ export const u_fixed = (val, num = 2) => val.toFixed(num);
  */
 export const timeFmt = (date, fmt = 'yyyy/MM/dd') => {
     var o = {
-        "M+": date.getMonth() + 1, //月份 
-        "d+": date.getDate(), //日 
-        "h+": date.getHours(), //小时 
-        "m+": date.getMinutes(), //分 
-        "s+": date.getSeconds(), //秒 
-        "q+": Math.floor((date.getMonth() + 3) / 3), //季度 
-        "S": date.getMilliseconds() //毫秒 
+        "M+": date.getMonth() + 1,
+        "d+": date.getDate(),
+        "h+": date.getHours(),
+        "m+": date.getMinutes(),
+        "s+": date.getSeconds(),
+        "q+": Math.floor((date.getMonth() + 3) / 3),
+        "S": date.getMilliseconds()
     };
     if (/(y+)/.test(fmt)) {
         fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
@@ -38,6 +38,21 @@ export const unique = array => {
     return array.filter(item => {
         return !tmp.has(item) && tmp.set(item, 1);
     })
+}
+
+/**
+ * 数组乱序
+ * @param {Array} 源数组
+ */
+export const arrDisorder = (arr) => {
+    let t, j, i = arr.length;
+    for (; i;) {
+        j = ~~(Math.random() * i);
+        t = arr[--i];
+        arr[i] = arr[j];
+        arr[j] = t;
+    }
+    return arr
 }
 
 /**
@@ -81,21 +96,21 @@ function isObject(o) {
  * @param suffix 截取前len个后，其余的字符的替换字符，一般用“…”
  */
 export const cutString = (str, len, suffix = "") => {
-    if (!str || len <= 0) return ""
-    let templen = 0
-    for (let i = 0; i < str.length; i++) {
+    if (!str || len <= 0) return "";
+    let tempLen = 0;
+    for (let i = 0, length = str.length; i < length; i++) {
         if (str.charCodeAt(i) > 255) {
-            templen += 2
+            tempLen += 2;
         } else {
-            templen++
+            tempLen++;
         }
-        if (templen == len) {
-            return str.substring(0, i + 1) + suffix
-        } else if (templen > len) {
-            return str.substring(0, i) + suffix
+        if (tempLen == len) {
+            return str.substring(0, i + 1) + suffix;
+        } else if (tempLen > len) {
+            return str.substring(0, i) + suffix;
         }
     }
-    return str
+    return str;
 }
 
 /**
@@ -120,7 +135,6 @@ function randomInt(min, max) {
 /**
  * 判断值是否为空
  * @param {*} value 
- * @returns {Boolean}
  */
 export const isEmpty = value => {
     return (
@@ -130,4 +144,3 @@ export const isEmpty = value => {
         (typeof value === "string" && value.trim().length === 0)
     );
 }
-
