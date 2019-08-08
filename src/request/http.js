@@ -5,7 +5,7 @@
 import axios from 'axios';
 import Qs from 'qs'
 import router from '../router';
-import store from '../store';
+import store from '../store/store3_modules_namespace';
 
 import {
     Toast
