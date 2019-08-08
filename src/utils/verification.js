@@ -50,6 +50,9 @@ export const bankCardVerify = bankCard => regTest(Regs.bankCard, bankCard);
 
 /**
  * replace 方法
+ * @param {RegExp} 匹配规则
+ * @param {String} 源值
+ * @param {String|Function} 替换对象
  */
 const replace = (reg, val, tarVal) => val.replace(reg, tarVal);
 
@@ -63,7 +66,7 @@ export const trimSpace = (val, trimType = 0) => replace(Regs.trim[trimType], val
 /**
  * 匹配范围字符展示 “*” 
  * @param {String} val 字符串
- * @param {Number} starType 匹配项类型，默认电话号码
+ * @param {Number} starType 类型，默认电话号码
  */
 export const replace2star = (val, starType = 0) => replace(Regs.star[starType], val, (match, $1, $2, $3) => {
     let str = $1,
@@ -72,5 +75,5 @@ export const replace2star = (val, starType = 0) => replace(Regs.star[starType], 
         str += "*";
     }
     str += $3;
-    return str
+    return str;
 })

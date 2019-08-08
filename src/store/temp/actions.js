@@ -7,8 +7,7 @@ import * as types from "./mutations-type";
 import {
     StorageModel
 } from "@/utils/storage.js"
-var storage = new StorageModel()
-
+const storage = new StorageModel()
 
 /**
  * token 保存操作

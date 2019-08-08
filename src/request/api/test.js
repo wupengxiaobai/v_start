@@ -1,5 +1,5 @@
 /**
- * article模块接口列表
+ * 测试接口列表
  */
 import {
     testApi as test
