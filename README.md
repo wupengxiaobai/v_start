@@ -34,12 +34,9 @@
 
 ## store vuex 应用
 
-- index.js
-- state.js
-- getters.js
-- mutations-type.js
-- mutations.js
-- actions.js
+- 基础拆分 vuex
+- 全局命名空间的模块化 vuex
+- 带局部命名空间的模块化 vuex
 
 ## utils 工具
 

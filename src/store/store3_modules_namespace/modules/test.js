@@ -8,7 +8,6 @@ const state = {
 
 const mutations = {
     [types.SET_LIST](state, list) {
-        console.log(list)
         state.list = list
     },
 
