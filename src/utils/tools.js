@@ -5,6 +5,7 @@
 export const u_fixed = (val, num = 2) => val.toFixed(num);
 
 /**
+ * 日期时间格式化
  * @param {Date} 时间实例
  * @param {String} 格式
  */
@@ -27,6 +28,33 @@ export const timeFmt = (date, fmt = 'yyyy/MM/dd') => {
         }
     }
     return fmt;
+}
+
+/**
+ * 倒计时格式化
+ * @param {Date} endTime 目标时间戳
+ * @param {String} fmt 格式 
+ * @param {String} prevText 前置文案
+ * @param {String} lastText 后置文案
+ */
+export const countDown = (endTime, fmt = 'dd天hh时mm分ss秒', prevText = "", lastText = "") => {
+    var diffTime = parseInt((endTime.getTime() - (new Date()).getTime()) / 1000);
+    var day = ~~(diffTime / (60 * 60 * 24)),
+        hour = ~~((diffTime - day * 24 * 60 * 60) / 3600),
+        minute = ~~((diffTime - day * 24 * 60 * 60 - hour * 3600) / 60),
+        second = ~~((diffTime - day * 24 * 60 * 60 - hour * 3600 - minute * 60));
+    var o = {
+        "d+": day,
+        "h+": hour,
+        "m+": minute,
+        "s+": second
+    };
+    for (var k in o) {
+        if (new RegExp("(" + k + ")").test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)))
+        }
+    }
+    return (prevText + fmt + lastText);
 }
 
 /**

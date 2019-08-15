@@ -2,6 +2,7 @@ import * as types from '../types';
 import axios from "axios"
 
 const state = {
+    TestDefault: 'vuex -- > TestModules',
     list: [],
     tempList: []
 }
@@ -33,7 +34,8 @@ const actions = {
 const getters = {
     list: state => state.list,
     tempList: state => state.tempList,
-    whiteUser: state => state.list.filter(item => (/白/g).test(item.nickname))
+    whiteUser: state => state.list.filter(item => (/白/g).test(item.nickname)),
+    TestDefault: state => state.TestDefault
 }
 
 export default {
