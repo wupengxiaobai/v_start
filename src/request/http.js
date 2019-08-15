@@ -5,7 +5,7 @@
 import axios from 'axios';
 import Qs from 'qs'
 import router from '../router';
-import store from '../store/store3_modules_namespace';
+import store from '../store';
 
 import {
     Toast
@@ -36,24 +36,16 @@ const toLogin = () => {
 const errorHandle = (status, otherMessage) => {
     switch (status) {
         case 401:
-            //  401: 未登录状态, 跳转登录页
             toLogin()
             break;
         case 403:
-            //  403: 登录过期， 清除token 并跳转登录页
             tip('登录过期，请重新登录')
-
             // store.commit('loginSuccess', null)
-            setTimeout(() => {
-                toLogin()
-            }, 300)
+            toLogin()
             break;
-
-            //  请求资源不存在，网页丢失
         case 404:
             tip('请求资源不存在')
             break;
-
         default:
             tip(otherMessage)
     }
@@ -72,12 +64,11 @@ instance.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded;c
  */
 instance.interceptors.request.use(
     config => {
-        // let token = store.getters.token;
-        // token && (config.headers.Authorization = token);
+        let token = store.getters.token;
+        token && (config.headers.Authorization = token);
         if (config.method === 'post') {
             let data = Qs.parse(config.data)
             config.data = Qs.stringify({
-                // access_token: token, //  附加默认参数
                 ...data
             })
         } else if (config.method === 'get') {
@@ -108,6 +99,7 @@ instance.interceptors.response.use(
             // 断网
             console.log('请求超时或断网.....')
             // store.commit('changeNetwork', false);
+            return Promise.reject("请求超时");
         }
     }
 );

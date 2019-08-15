@@ -1,6 +1,6 @@
 <template>
   <div class="test">
-    <H1>{{ TestDefault }}</H1>
+    <H1>getters list  --> {{ list }}</H1>
     <h2>{{ new Date | mixin_time_fmt('yyyy年MM月dd日 HH时mm分ss秒SS毫秒') }}</h2>
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
   },
   methods: {},
   computed: {
-    ...mapGetters(["TestDefault"])
+    ...mapGetters(["list"])
   }
 };
 </script>

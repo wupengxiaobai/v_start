@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store/store2_modules";
+import store from "./store";
 import "./plugin/vant";
 import "./common/js/rem.js";
 
